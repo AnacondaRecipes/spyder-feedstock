@@ -21,7 +21,7 @@ build:
   osx_is_app: True
 
 requirements:
-  build:
+  host:
     - python
     - sphinx
   run:
