@@ -13,9 +13,10 @@ source:
   patches:
     # Prevent a crash in macOS with Python 3
     - zmq.patch
+    - 0001-Hack-import-zmq-in-start.py.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: True
