@@ -16,6 +16,7 @@ source:
 
 build:
   number: 0
+  skip: true  # [ppc64le or s390x]
   skip: true  # [py36 and aarch64]
   entry_points:
     - spyder = spyder.app.start:main
