@@ -82,7 +82,9 @@ test:
   commands:
     - USER=test spyder -h  # [unix]
     - spyder -h  # [win]
-    - python -m pip check  # [linux or (win and py>=37)]
+    # disable pip check since conda names do not match pip names.
+    # imports do work for pyqt5 & pyqtwebengine
+    # - python -m pip check  # [linux or (win and py>=37)]
   imports:
     - spyder
 
