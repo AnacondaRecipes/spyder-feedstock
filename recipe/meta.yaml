@@ -13,7 +13,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [ppc64le or s390x or py<36]
+  # 2022/4/15: Currently ipython <8 causes tests fail on python 3.10
+  skip: true  # [ppc64le or s390x or py<36 or py310]
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
