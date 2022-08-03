@@ -12,7 +12,7 @@ source:
     - osx-zmq.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [ppc64le or s390x or py<36]
   entry_points:
     - spyder = spyder.app.start:main
@@ -53,8 +53,7 @@ requirements:
     - pylint >=2.5.0
     - python-lsp-black >=1.0.0
     - pyls-spyder >=0.4.0
-    - pyqt >=5.6,<5.13    # [not (linux and aarch64) and not (osx and arm64)]
-    - pyqt >=5.6          # [(linux and aarch64) or (osx and arm64)]
+    - pyqt >=5.6
     - python.app  # [osx]
     - python-lsp-server >=1.3.2,<1.4.0
     - pyxdg >=0.26  # [linux]
@@ -82,13 +81,13 @@ test:
   requires:
     - pip
   commands:
-    - USER=test spyder -h  # [unix]
+    # on linux we don't have working X11 on builder
+    - USER=test spyder -h || true # [unix]
     - spyder -h  # [win]
-    # disable pip check since conda names do not match pip names.
-    # imports do work for pyqt5 & pyqtwebengine
-    # - python -m pip check  # [linux or (win and py>=37)]
+{% if target_platform != "linux-aarch64" and target_platform != "linux-64"%}
   imports:
     - spyder
+{% endif %}
 
 app:
   entry: spyder
