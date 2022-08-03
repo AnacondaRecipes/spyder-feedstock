@@ -13,6 +13,7 @@ source:
 
 build:
   number: 1
+  # trigger: 0
   skip: true  # [ppc64le or s390x or py<36]
   entry_points:
     - spyder = spyder.app.start:main
