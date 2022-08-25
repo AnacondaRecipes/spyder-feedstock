@@ -53,8 +53,7 @@ requirements:
     - pylint >=2.5.0
     - python-lsp-black >=1.2.0
     - pyls-spyder >=0.4.0
-    - pyqt >=5.6,<5.16    # [not (linux and aarch64) and not (osx and arm64)]
-    - pyqt >=5.6          # [(linux and aarch64) or (osx and arm64)]
+    - pyqt >=5.6
     - pyqtwebengine <5.16
     - python.app  # [osx]
     - python-lsp-server >=1.4.1,<1.5.0
@@ -86,16 +85,14 @@ test:
   requires:
     - pip
   commands:
-    # spyder 5.2.2 requires pyqt5, which is not installed.
-    # spyder 5.2.2 requires pyqtwebengine, which is not installed
-    #- pip check
-    - USER=test spyder -h  # [unix]
+    - pip check
+    # on linux we don't have working X11 on builder
+    - USER=test spyder -h || true # [unix]
     - spyder -h  # [win]
-    # disable pip check since conda names do not match pip names.
-    # imports do work for pyqt5 & pyqtwebengine
-    # - python -m pip check  # [linux or (win and py>=37)]
+{% if target_platform != "linux-aarch64" and target_platform != "linux-64"%}
   imports:
     - spyder
+{% endif %}
 
 app:
   entry: spyder
