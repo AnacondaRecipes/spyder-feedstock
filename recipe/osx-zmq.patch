@@ -1,25 +1,17 @@
-From a5f62a526738d854c1fa5d1589fec504199e2311 Mon Sep 17 00:00:00 2001
+From 0a579edbabbb897e9042ef960b2227bca6cc49d1 Mon Sep 17 00:00:00 2001
 From: Serhii Kupriienko
-Date: Thu, 1 Sep 2022 08:56:14 +0000
+Date: Thu, 1 Sep 2022 12:36:51 +0300
 Subject: [PATCH] Fix osx zmq
 
 ---
- spyder/app/start.py | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ spyder/app/start.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/spyder/app/start.py b/spyder/app/start.py
-index e1286162f..e9ca84aad 100644
+index e1286162f..3a2acbede 100644
 --- a/spyder/app/start.py
 +++ b/spyder/app/start.py
-@@ -10,6 +10,7 @@
- # shadowed standard libraries.
- import os
- import sys
-+
- if os.environ.get('PYTHONPATH'):
-     for path in os.environ['PYTHONPATH'].split(os.pathsep):
-         try:
-@@ -39,7 +40,8 @@
+@@ -39,7 +39,8 @@
  
  # Prevent a race condition with ZMQ
  # See spyder-ide/spyder#5324.
@@ -29,21 +21,6 @@ index e1286162f..e9ca84aad 100644
  
  # Load GL library to prevent segmentation faults on some Linux systems
  # See spyder-ide/spyder#3226 and spyder-ide/spyder#3332.
-@@ -50,11 +52,10 @@
- 
- # Local imports
- from spyder.app.cli_options import get_options
--from spyder.config.base import (get_conf_path, running_in_mac_app,
--                                reset_config_files, running_under_pytest)
--from spyder.utils.external import lockfile
-+from spyder.config.base import (get_conf_path, reset_config_files,
-+                                running_in_mac_app, running_under_pytest)
- from spyder.py3compat import is_unicode
--
-+from spyder.utils.external import lockfile
- 
- # Get argv
- if running_under_pytest():
 -- 
 2.34.1
 
