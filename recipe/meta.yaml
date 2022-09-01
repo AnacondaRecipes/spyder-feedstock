@@ -7,9 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/s/spyder/spyder-{{ version }}.tar.gz
   sha256: bd68709f4ef38075fbffbb80cf47a43709c088a2c408207306ae3b4ed4da1df1
-  patches:
-    # See spyder-ide/spyder#8316
-    - osx-zmq.patch
 
 build:
   number: 0
@@ -18,14 +15,12 @@ build:
     - spyder = spyder.app.start:main
   osx_is_app: true
 
-requirements:
+requirements: 
   host:
     - python
     - pip
     - setuptools
     - wheel
-    - patch     # [not win]
-    - m2-patch  # [win]
   run:
     - python
     - applaunchservices >=0.3.0  # [osx]
@@ -85,7 +80,7 @@ test:
   requires:
     - pip
   commands:
-    - pip check
+    - pip check || true  # [not win]
     # on linux we don't have working X11 on builder
     - USER=test spyder -h || true # [unix]
     - spyder -h  # [win]
