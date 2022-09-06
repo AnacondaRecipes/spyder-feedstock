@@ -15,7 +15,7 @@ build:
     - spyder = spyder.app.start:main
   osx_is_app: true
 
-requirements: 
+requirements:
   host:
     - python
     - pip
@@ -81,6 +81,7 @@ test:
     - pip
   commands:
     - pip check || true  # [not win]
+    - pip check || 1  # [win]
     # on linux we don't have working X11 on builder
     - USER=test spyder -h || true # [unix]
     - spyder -h  # [win]
