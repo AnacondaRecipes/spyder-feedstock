@@ -80,11 +80,11 @@ test:
   requires:
     - pip
   commands:
-    - pip check || true  # [not win]
-    - pip check || 1  # [win]
+    - pip check || true           # [not win]
+    - pip check || exit /B 1      # [win]
     # on linux we don't have working X11 on builder
     - USER=test spyder -h || true # [unix]
-    - spyder -h  # [win]
+    - spyder -h                   # [win]
 {% if target_platform != "linux-aarch64" and target_platform != "linux-64"%}
   imports:
     - spyder
