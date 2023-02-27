@@ -63,12 +63,13 @@ requirements:
    - rtree >=0.9.7
    - setuptools >=49.6.0
    - sphinx >=0.6.6
-   - spyder-kernels >=2.4.2,<2.5.0
+   - spyder-kernels >=2.4.1,<2.5.0
    - textdistance >=4.2.0
    - three-merge >=0.1.1
    - watchdog >=0.10.3
     # This is here to workaround an inconsistency with flake8
     # See: https://github.com/conda-forge/flake8-feedstock/issues/52
+   - importlib-metadata <4.3 # [py < 38]
   run_constrained:
     - menuinst >=1.4.17
 
