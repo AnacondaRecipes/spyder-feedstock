@@ -11,6 +11,7 @@ source:
 build:
   number: 0
   skip: true  # [ppc64le or s390x or py<38]
+  # spyder-kernels is not available for python versions less than 3.8
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
