@@ -72,7 +72,7 @@ requirements:
     # See: https://github.com/conda-forge/flake8-feedstock/issues/52
    - importlib-metadata <4.3 # [py<38]
   run_constrained:
-    - menuinst >=1.4.17
+    - menuinst >=1.4.17 
 
 test:
   # NOTE: Since this is a GUI application, built packages should be uploaded to
