@@ -1,4 +1,4 @@
-%PYTHON% -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+%PYTHON% -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv
 if errorlevel 1 exit 1
 
 set MENU_DIR=%PREFIX%\Menu
