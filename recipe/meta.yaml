@@ -1,4 +1,4 @@
-{% set version = "5.4.3" %}
+{% set version = "5.5.1" %}
 
 package:
   name: spyder
@@ -6,12 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/spyder/spyder-{{ version }}.tar.gz
-  sha256: 14c86757a5122cb0785817d0ab6c00d8fe894ebd214c97e8ef5c44f962601371
+  sha256: fb3f098f4780fe6607d6bf19414c98505324ee1d660718e84c3e58664d1c1f49
 
 build:
-  number: 1
+  number: 0
   skip: true  # [ppc64le or s390x or py<38]
-  # spyder-kernels is not available for python versions less than 3.8
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
@@ -20,7 +19,8 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=61.2.0
+    - setuptools-scm >=3.4.3
     - wheel
   run:
    - python
@@ -31,8 +31,9 @@ requirements:
    - cookiecutter >=1.6.0
    - diff-match-patch >=20181111
    - intervaltree >=3.0.2
-   - ipython >=7.31.1,<9.0.0,!=8.8.0,!=8.9.0,!=8.10.0
-   - jedi >=0.17.2,<0.19.0
+   - ipython >=8.12.2,<8.13.0  # [py==38]
+   - ipython >=8.13.0,<9.0.0,!=8.17.1  # [py>38]
+   - jedi >=0.17.2,<0.20.0
    - jellyfish >=0.7
    - jsonschema >=3.2.0
    - keyring >=17.0.0
@@ -47,24 +48,24 @@ requirements:
    - psutil >=5.3
    - pygments >=2.0
    - pylint >=2.5.0,<3.0
-   - pylint-venv >=2.1.1
-   - python-lsp-black >=1.2.0
+   - pylint-venv >=3.0.2
+   - python-lsp-black >=2.0.0,<3.0.0
    - pyls-spyder >=0.4.0
-   - pyqt >=5.6,<5.16
-   - pyqtwebengine <5.16
+   - pyqt >=5.10,<5.16
+   - pyqtwebengine >=5.10,<5.16
    - python.app  # [osx]
-   - python-lsp-server >=1.7.2,<1.8.0
+   - python-lsp-server >=1.10.0,<1.11.0
    - pyxdg >=0.26  # [linux]
    - pyzmq >=22.1.0
-   - qdarkstyle >=3.0.2,<3.2.0
+   - qdarkstyle >=3.2.0,<3.3.0
    - qstylizer >=0.2.2
    - qtawesome >=1.2.1
-   - qtconsole >=5.4.2,<5.5.0
+   - qtconsole >=5.5.1,<5.6.0
    - qtpy >=2.1.0
    - rtree >=0.9.7
    - setuptools >=49.6.0
    - sphinx >=0.6.6
-   - spyder-kernels >=2.4.3,<2.5.0
+   - spyder-kernels >=2.5.0,<2.6.0
    - textdistance >=4.2.0
    - three-merge >=0.1.1
    - watchdog >=0.10.3
@@ -79,8 +80,7 @@ test:
   requires:
     - pip
   commands:
-    - pip check || true           # [not win]
-    - pip check || (exit 0)         # [win]
+    - pip check
     # on linux we don't have working X11 on builder
     - USER=test spyder -h || true # [unix]
     - spyder -h                   # [win]
