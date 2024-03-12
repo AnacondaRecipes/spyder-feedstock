@@ -1,6 +1,0 @@
-channels:
-  - https://staging.continuum.io/prefect/fs/pyobjc-core-feedstock/pr11/b6a3381
-  - https://staging.continuum.io/prefect/fs/pyobjc-framework-cocoa-feedstock/pr11/78fdf09
-  - https://staging.continuum.io/prefect/fs/pyobjc-framework-fsevents-feedstock/pr10/d2f9731
-  - https://staging.continuum.io/prefect/fs/pyobjc-framework-coreservices-feedstock/pr5/261c4e7
-  - https://staging.continuum.io/prefect/fs/applaunchservices-feedstock/pr2/201e80b
