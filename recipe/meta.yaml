@@ -10,7 +10,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [ppc64le or s390x or py<38]
+  skip: true  # [s390x or py<38]
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
@@ -19,8 +19,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=61.2.0
-    - setuptools-scm >=3.4.3
+    - setuptools
     - wheel
   run:
    - python
@@ -47,7 +46,7 @@ requirements:
    - ptyprocess >=0.5  # [win]
    - psutil >=5.3
    - pygments >=2.0
-   - pylint >=2.5.0,<3.0
+   - pylint >=2.5.0,<3.1
    - pylint-venv >=3.0.2
    - python-lsp-black >=2.0.0,<3.0.0
    - pyls-spyder >=0.4.0
