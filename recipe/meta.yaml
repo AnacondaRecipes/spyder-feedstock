@@ -90,7 +90,7 @@ test:
 
 app:
   entry: spyder
-  icon: logo.png
+  icon: spyder.png
   summary: The Scientific Python Development Environment
   type: desk
 
