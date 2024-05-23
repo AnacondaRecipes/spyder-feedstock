@@ -9,7 +9,7 @@ if [[ $(uname) == Darwin ]]; then
 else
     ICON_EXT="png"
 fi
-cp "${SRC_DIR}/spyder.${ICON_EXT}" "${PREFIX}/Menu/"
+cp "${RECIPE_DIR}/spyder.${ICON_EXT}" "${PREFIX}/Menu/"
 
 rm -rf $PREFIX/man
 rm -f $PREFIX/bin/spyder_win_post_install.py
