@@ -14,6 +14,10 @@ build:
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
+  # The menu file is either v1 or v2.
+  # Avoid linking to not overwrite menu file in pkgs directory.
+  no_link:
+    - 'Menu/{{ name }}_menu.json'
 
 requirements:
   host:
