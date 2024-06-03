@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # The menuinst v2 json file is not compatible with menuinst versions
 # older than 2.1.0. Copy the appropriate file as the menu file.
 
