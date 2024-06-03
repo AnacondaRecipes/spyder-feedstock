@@ -1,4 +1,4 @@
-{% set name = "spyder" }}
+{% set name = "spyder" %}
 {% set version = "5.5.1" %}
 
 package:
