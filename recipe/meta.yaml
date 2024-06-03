@@ -74,7 +74,7 @@ requirements:
    - three-merge >=0.1.1
    - watchdog >=0.10.3
   run_constrained:
-    - menuinst >= 2.1.0
+    - menuinst >=1.4.7
 
 test:
   # NOTE: Since this is a GUI application, built packages should be uploaded to
