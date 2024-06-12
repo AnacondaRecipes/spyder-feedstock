@@ -8,7 +8,7 @@ REM menu file so that conda picks it up when running menuinst.
 REM This can be deprecated once supported installers have newer menuinst versions.
 set MENU_DIR=%PREFIX%\Menu
 IF NOT EXIST (%MENU_DIR%) mkdir %MENU_DIR%
-copy %RECIPE_DIR%\spyder.ico %MENU_DIR%\
+copy %SRC_DIR%\img_src\spyder.ico %MENU_DIR%\
 if errorlevel 1 exit 1
 copy %RECIPE_DIR%\menu-v1.json %PREFIX%\Menu\%PKG_NAME%_menu-v1.json.bak
 copy %RECIPE_DIR%\menu-v2.json %PREFIX%\Menu\%PKG_NAME%_menu-v2.json.bak
