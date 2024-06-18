@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.io/menuinst-1.schema.json",
+    "menu_name": "Anaconda ({{ DISTRIBUTION_NAME }})",
+    "menu_items": [
+        {
+            "name": {
+                "target_environment_is_base": "Spyder",
+                "target_environment_is_not_base": "Spyder ({{ ENV_NAME }})"
+            },
+            "description": "Scientific PYthon Development EnviRonment",
+            "activate": false,
+            "terminal": false,
+            "icon": "{{ MENU_DIR }}/spyder.{{ ICON_EXT }}",
+            "command": ["{{ PREFIX }}/bin/spyder", "$@"],
+            "platforms": {
+                "win": {
+                    "desktop": false,
+                    "quicklaunch": false,
+                    "app_user_model_id": "anaconda.Spyder",
+                    "command": ["{{ PYTHONW }}", "{{ SCRIPTS_DIR }}/spyder-script.py"]
+                },
+                "osx": {
+                    "name": "Anaconda Spyder",
+                    "CFBundleName": "Spyder",
+                    "CFBundleIdentifier": "com.anaconda.io",
+                    "CFBundleVersion": "__PKG_VERSION__"
+                },
+                "linux": {
+                    "Categories": [
+                        "Development",
+                        "Science"
+                    ],
+                    "StartupWMClass": "Spyder"
+                }
+            }
+        }
+    ]
+}

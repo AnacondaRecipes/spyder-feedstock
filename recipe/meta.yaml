@@ -1,7 +1,8 @@
+{% set name = "spyder" %}
 {% set version = "5.5.1" %}
 
 package:
-  name: spyder
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -9,11 +10,15 @@ source:
   sha256: fb3f098f4780fe6607d6bf19414c98505324ee1d660718e84c3e58664d1c1f49
 
 build:
-  number: 0
+  number: 1
   skip: true  # [s390x or py<38]
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
+  # The menu file is either v1 or v2.
+  # Avoid linking to not overwrite menu file in pkgs directory.
+  no_link:
+    - 'Menu/{{ name }}_menu.json'
 
 requirements:
   host:
@@ -69,7 +74,7 @@ requirements:
    - three-merge >=0.1.1
    - watchdog >=0.10.3
   run_constrained:
-    - menuinst >=1.4.17 
+    - menuinst >=1.4.7
 
 test:
   # NOTE: Since this is a GUI application, built packages should be uploaded to
@@ -90,7 +95,7 @@ test:
 
 app:
   entry: spyder
-  icon: logo.png
+  icon: spyder.png
   summary: The Scientific Python Development Environment
   type: desk
 
