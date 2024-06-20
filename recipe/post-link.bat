@@ -5,7 +5,7 @@ REM older than 2.1.0. Copy the appropriate file as the menu file.
 
 SET LOGFILE="%PREFIX%\.messages.txt"
 
-FOR /F "/delims=" %%i IN (
+FOR /F "delims=" %%i IN (
     '"%CONDA_PYTHON_EXE%" -c "import menuinst; print(tuple(int(x) for x in menuinst.__version__.split(\".\"))[:3] < (2, 1, 0))"'
 ) DO (
     IF "%%~i"=="True" GOTO :use_menuinst_v1
