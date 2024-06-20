@@ -1,7 +1,7 @@
 @ECHO OFF
 
 REM The menuinst v2 json file is not compatible with menuinst versions
-REM REM older than 2.1.0. Copy the appropriate file as the menu file.
+REM older than 2.1.0. Copy the appropriate file as the menu file.
 
 SET LOGFILE="%PREFIX%\.messages.txt"
 
@@ -18,7 +18,7 @@ GOTO :exit
     ECHO Warning: using menuinst v1 shortcuts. >> %LOGFILE%
     ECHO menuinst v1 is marked as legacy and is no longer maintained. >> %LOGFILE%
     ECHO Please update menuinst in the base environment and reinstall %PKG_NAME%. >> %LOGFILE%
-GOTO :exit
+    GOTO :exit
 
 :exit
     EXIT /B %ERRORLEVEL%
