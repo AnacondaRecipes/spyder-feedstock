@@ -10,7 +10,7 @@ source:
   sha256: fb3f098f4780fe6607d6bf19414c98505324ee1d660718e84c3e58664d1c1f49
 
 build:
-  number: 1
+  number: 2
   skip: true  # [s390x or py<38]
   entry_points:
     - spyder = spyder.app.start:main
