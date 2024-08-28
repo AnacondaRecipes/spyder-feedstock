@@ -1,7 +1,8 @@
 {% set version = "5.5.1" %}
+{% set name = "spyder" %}
 
 package:
-  name: spyder
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -9,15 +10,13 @@ source:
   sha256: fb3f098f4780fe6607d6bf19414c98505324ee1d660718e84c3e58664d1c1f49
 
 build:
-  # This build number has not been published.
-  # It is used to reset the state of the repository
-  # after reverting menuinst2 integration.
-  # See PR 22
-  number: 3
+  number: 4
   skip: true  # [s390x or py<38]
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
+  no_link:
+    - 'Menu/{{ name }}_menu.json'
 
 requirements:
   host:
