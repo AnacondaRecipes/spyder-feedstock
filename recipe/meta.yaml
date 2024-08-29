@@ -36,7 +36,9 @@ requirements:
    - ipython >=8.12.2,<8.13.0  # [py==38]
    - ipython >=8.13.0,<9.0.0,!=8.17.1  # [py>38]
    - jedi >=0.17.2,<0.20.0
-   - jellyfish >=0.7
+   - jellyfish >=0.7          # [not (osx and arm64 and py<312)]
+   # Tests fail with "jellyfish 1.0.1 is not supported on this platform"
+   - jellyfish >=0.7,!=1.0.1  # [osx and arm64 and py<312]
    - jsonschema >=3.2.0
    - keyring >=17.0.0
    - nbconvert >=4.0
