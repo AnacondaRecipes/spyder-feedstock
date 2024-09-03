@@ -17,19 +17,8 @@
                     "command": ["{{ PYTHONW }}", "{{ SCRIPTS_DIR }}/spyder-script.py"],
                     "app_user_model_id": "anaconda.Spyder.{{ DISTRIBUTION_NAME }}.{{ ENV_NAME }}"
                 },
-                "osx": {
-                    "name": "Anaconda Spyder",
-                    "CFBundleName": "Spyder",
-                    "CFBundleIdentifier": "com.anaconda.io",
-                    "CFBundleVersion": "__PKG_VERSION__"
-                },
-                "linux": {
-                    "Categories": [
-                        "Development",
-                        "Science"
-                    ],
-                    "StartupWMClass": "Spyder"
-                }
+                "osx": null,
+                "linux": null
             }
         }
     ]
