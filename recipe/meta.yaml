@@ -1,4 +1,4 @@
-{% set version = "6.0.1" %}
+{% set version = "6.0.3" %}
 {% set name = "spyder" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/spyder/spyder-{{ version }}.tar.gz
-  sha256: 709782e88091588bbe614de6ebbde7b47544a4d6c225e199de5ad22b77d8b130
+  sha256: 8387321b9390d7cd0af4dccf44eff21f7098e644034bf83e7e9e6a09afd80c0f
   patches:
     # See spyder-ide/spyder#8316
     - osx-zmq.patch
@@ -72,12 +72,12 @@ requirements:
    - qdarkstyle >=3.2.0,<3.3.0
    - qstylizer >=0.2.2
    - qtawesome >=1.3.1,<1.4.0
-   - qtconsole >=5.6.0,<5.7.0
+   - qtconsole >=5.6.1,<5.7.0
    - qtpy >=2.4.0
    - rtree >=0.9.7
    - setuptools >=49.6.0
    - sphinx >=0.6.6
-   - spyder-kernels >=3.0.0,<3.1.0
+   - spyder-kernels >=3.0.2,<3.1.0
    - superqt >=0.6.2,<1.0.0
    - textdistance >=4.2.0
    - three-merge >=0.1.1
@@ -93,6 +93,7 @@ requirements:
     - pydocstyle >=6.3.0,<6.4.0
     - pyflakes >=3.2.0,<3.3.0
     - pylint >=3.1,<4
+    - pyqt5-sip<12.16 #[py==3.8]
     - rope >=1.11.0
     - yapf >=0.33.0
     - whatthepatch >=1.0.2,<2.0.0
