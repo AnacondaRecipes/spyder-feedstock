@@ -7,3 +7,4 @@ channels:
   - https://staging.continuum.io/prefect/fs/python-lsp-server-feedstock/pr9/6211816
   - https://staging.continuum.io/prefect/fs/python-lsp-black-feedstock/pr3/0b79699
   - https://staging.continuum.io/prefect/fs/qtconsole-feedstock/pr22/4aa541e
+  - https://staging.continuum.io/prefect/fs/sphinx-feedstock/pr18/cfc3614

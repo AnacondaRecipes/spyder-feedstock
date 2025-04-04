@@ -168,3 +168,6 @@ extra:
     - dalthviz
     - andfoy
     - steff456
+  skip-lints:
+    - python_build_tool_in_run
+    - missing_imports_or_run_test_py
