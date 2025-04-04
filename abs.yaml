@@ -3,3 +3,7 @@ build_env_vars:
 
 channels:
   - https://staging.continuum.io/prefect/fs/spyder-kernels-feedstock/pr18/eaa61f5
+  - https://staging.continuum.io/prefect/fs/rope-feedstock/pr13/5c40830
+  - https://staging.continuum.io/prefect/fs/python-lsp-server-feedstock/pr9/6211816
+  - https://staging.continuum.io/prefect/fs/python-lsp-black-feedstock/pr3/0b79699
+  - https://staging.continuum.io/prefect/fs/qtconsole-feedstock/pr22/4aa541e
