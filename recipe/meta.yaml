@@ -1,4 +1,4 @@
-{% set version = "6.0.4" %}
+{% set version = "6.0.5" %}
 {% set name = "spyder" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/spyder/spyder-{{ version }}.tar.gz
-  sha256: e00b1a3bbe66007d2b4439eb1c68b0c1fb904bb03fd3f9d0ed83e8b7acb4cbe6
+  sha256: caa315b7009b0dd6cb55bc3d8989a15102ed785dcf793ae585f5e76dfb7a519e
   patches:
     # See spyder-ide/spyder#8316
     - osx-zmq.patch
@@ -49,9 +49,7 @@ requirements:
    - ipython >=8.12.2,<8.13.0          # [py==38]
    - ipython >=8.13.0,<9.0.0,!=8.17.1  # [py>38]
    - jedi >=0.17.2,<0.20.0
-   - jellyfish >=0.7                   # [not (osx and arm64 and py<312)]
-   # Tests fail with "jellyfish 1.0.1 is not supported on this platform"
-   - jellyfish >=0.7,!=1.0.1           # [osx and arm64 and py<312]
+   - jellyfish >=0.7
    - jsonschema >=3.2.0
    - keyring >=17.0.0
    - nbconvert >=4.0
@@ -65,8 +63,6 @@ requirements:
    - pylint >=3.1,<4
    - pylint-venv >=3.0.2
    - pyls-spyder >=0.4.0
-   - pyqt >=5.15,<5.16
-   - pyqtwebengine >=5.15,<5.16
    - python-lsp-black >=2.0.0,<3.0.0
    - python-lsp-server >=1.12.0,<1.13.0
    - pyuca >=1.2
@@ -74,8 +70,7 @@ requirements:
    - pyzmq >=24.0.0
    - qdarkstyle >=3.2.0,<3.3.0
    - qstylizer >=0.2.2
-   - qtawesome >=1.3.1,<1.4.0
-   - qtconsole >=5.6.1,<5.7.0
+   - qtawesome >=1.4.0,<1.5.0
    - qtpy >=2.4.0
    - rtree >=0.9.7
    - setuptools >=49.6.0
@@ -86,20 +81,25 @@ requirements:
    - three-merge >=0.1.1
    - watchdog >=0.10.3
    - yarl >=1.9.4
+   # qt_requirements
+   - pyqt >=5.15,<5.16
+   - pyqt5-sip <12.16  # [py==38]
+   - pyqtwebengine >=5.15,<5.16
+   - qtconsole >=5.6.1,<5.7.0
+   # python-lsp-server[all]
+   # bounds set in package python-lsp-server
+   - autopep8
+   - flake8
+   - mccabe
+   - pycodestyle
+   - pydocstyle
+   - pyflakes
+   - pylint
+   - rope
+   - yapf
+   - whatthepatch
   run_constrained:
     - menuinst >=2.1.2
-    # Optional dependencies from python-lsp-server[all] that the Spyder devs have opted to include by default.
-    - autopep8 >=2.0.4,<2.1.0
-    - flake8 >=7.1,<8
-    - mccabe >=0.7.0,<0.8.0
-    - pycodestyle >=2.12.0,<2.13.0
-    - pydocstyle >=6.3.0,<6.4.0
-    - pyflakes >=3.2.0,<3.3.0
-    - pylint >=3.1,<4
-    - pyqt5-sip <12.16  # [py==3.8]
-    - rope >=1.11.0
-    - yapf >=0.33.0
-    - whatthepatch >=1.0.2,<2.0.0
 
 test:
   # NOTE: Since this is a GUI application, built packages should be uploaded to
@@ -119,7 +119,7 @@ test:
     - spyder.api
     - spyder.api.config
     - spyder.api.plugin_registration
-    # - spyder.api.plugins
+    - spyder.api.plugins
     - spyder.api.shellconnect
     - spyder.api.widgets
     - spyder.app
