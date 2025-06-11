@@ -18,9 +18,13 @@ IF EXIST "%CONDA_PYTHON_EXE%" (
 REM The CONDA_PYTHON_EXE variable is not set for installers, so use conda-standalone.
 IF EXIST "%PREFIX%\_conda.exe" (
     SET PYTHON_CMD="%PREFIX%\_conda.exe" python
-    SET CONDA_STANDALONE=1
     GOTO :get_menuinst
 )
+IF EXIST "%CONDA_ROOT_PREFIX%\_conda.exe" (
+    SET PYTHON_CMD="%CONDA_ROOT_PREFIX%\_conda.exe" python
+    GOTO :get_menuinst
+)
+
 GOTO :use_menuinst_v1
 
 :get_menuinst
