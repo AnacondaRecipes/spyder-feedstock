@@ -83,9 +83,8 @@ requirements:
    - watchdog >=0.10.3
    - yarl >=1.9.4
    # qt_requirements
-   - pyqt >=5.15,<5.16
-   - pyqt5-sip <12.16  # [py==38]
-   - pyqtwebengine >=5.15,<5.16
+   - pyqt6 >=6.5,<7
+   - pyqt6-webengine >=6.5,<7
    - qtconsole >=5.6.1,<5.7.0
    # python-lsp-server[all]
    # bounds set in package python-lsp-server
