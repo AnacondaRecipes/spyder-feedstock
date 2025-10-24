@@ -21,14 +21,10 @@ build:
   skip: true  # [py<39]
 
 requirements:
-  build:
-    - patch  # [not win]
-    - msys2-patch  # [win]
   host:
     - python
     - pip
     - setuptools >=42
-    - wheel
     - packaging
   run:
    - python
@@ -99,7 +95,7 @@ requirements:
    - yapf
    - whatthepatch
   run_constrained:
-    - menuinst >=2.3.1
+    - menuinst >=2.1.2
 
 test:
   # NOTE: Since this is a GUI application, built packages should be uploaded to
