@@ -10,9 +10,10 @@ source:
   sha256: 5200c6249bb037307455f00c80633f50884d6ab43a75ad7c5ca13d2462574636
   patches:
     - patches/0001-transition-to-the-use-of-pyqt6.patch
+    - patches/0002-fix-double-click-error.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
