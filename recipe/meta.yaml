@@ -9,17 +9,18 @@ source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 5200c6249bb037307455f00c80633f50884d6ab43a75ad7c5ca13d2462574636
   patches:
-    - patches/0001-transition-to-the-use-of-pyqt6.patch
     - patches/0002-fix-double-click-error.patch
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
   no_link:
     - 'Menu/{{ name }}_menu.json'
   skip: true  # [py<39]
+  script_env:
+    - SPYDER_QT_BINDING=pyqt5
 
 requirements:
   host:
@@ -80,8 +81,8 @@ requirements:
    - watchdog >=0.10.3
    - yarl >=1.9.4
    # qt_requirements
-   - pyqt >=6.5,<7
-   - pyqtwebengine >=6.5,<7
+   - pyqt >=5.15,<5.16
+   - pyqtwebengine >=5.15,<5.16
    - qtconsole >=5.7.0,<5.8.0
    # python-lsp-server[all]
    # bounds set in package python-lsp-server
