@@ -1,4 +1,4 @@
-{% set version = "6.1.0" %}
+{% set version = "6.1.2" %}
 {% set name = "spyder" %}
 
 package:
@@ -7,20 +7,20 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5200c6249bb037307455f00c80633f50884d6ab43a75ad7c5ca13d2462574636
+  sha256: 6e09228a17eaa881e761eb3982f22f01d43b6ab5009bb36618b6aa9cffcc978d
   patches:
     - patches/0002-fix-double-click-error.patch
 
 build:
-  number: 2
+  number: 0
   entry_points:
     - spyder = spyder.app.start:main
   osx_is_app: true
   no_link:
     - 'Menu/{{ name }}_menu.json'
-  skip: true  # [py<39]
   script_env:
     - SPYDER_QT_BINDING=pyqt5
+  skip: true  # [py<39]
 
 requirements:
   host:
@@ -59,12 +59,12 @@ requirements:
    - psutil >=5.3
    - pygithub >=2.3.0
    - pygments >=2.0
-   - pylint >=3.1,<4
+   - pylint >=3.1,<5
    - pylint-venv >=3.0.2
    - pyls-spyder >=0.4.0
    - python-lsp-black >=2.0.0,<3.0.0
    - python-lsp-ruff>=2.3.0,<3.0.0
-   - python-lsp-server >=1.13.0,<1.14.0
+   - python-lsp-server >=1.14.0,<1.15.0
    - pyuca >=1.2
    - pyxdg >=0.26                      # [linux]
    - pyzmq >=24.0.0
@@ -73,7 +73,7 @@ requirements:
    - qtawesome >=1.4.0,<1.5.0
    - qtpy >=2.4.0
    - rtree >=0.9.7
-   - sphinx >=0.6.6
+   - sphinx >=7.2.0
    - spyder-kernels >=3.1.0,<3.2.0
    - superqt >=0.6.2,<1.0.0
    - textdistance >=4.2.0
