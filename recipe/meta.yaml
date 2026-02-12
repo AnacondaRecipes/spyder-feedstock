@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6e09228a17eaa881e761eb3982f22f01d43b6ab5009bb36618b6aa9cffcc978d
-  #patches:
-  #  - patches/0002-fix-double-click-error.patch
 
 build:
   number: 0
