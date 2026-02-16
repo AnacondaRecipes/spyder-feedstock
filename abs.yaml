@@ -1,0 +1,3 @@
+channels:
+    - https://staging.continuum.io/pbp/fs/pyqt-feedstock/pr25/a74642d
+    - https://staging.continuum.io/pbp/fs/qtconsole-feedstock/pr25/a599ff4
