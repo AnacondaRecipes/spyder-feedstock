@@ -1,3 +1,4 @@
 channels:
     - https://staging.continuum.io/pbp/fs/pyqt-feedstock/pr25/a74642d
     - https://staging.continuum.io/pbp/fs/qtconsole-feedstock/pr25/a599ff4
+    - https://staging.continuum.io/pbp/fs/spyder-kernels-feedstock/pr24/d97c783
