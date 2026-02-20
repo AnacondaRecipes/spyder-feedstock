@@ -14,9 +14,9 @@ IF NOT EXIST "%MENU_DIR%" MKDIR "%MENU_DIR%"
 if errorlevel 1 exit 1
 copy "%RECIPE_DIR%\menu-v1.json" "%MENU_DIR%\%PKG_NAME%_menu-v1.json.bak"
 if errorlevel 1 exit 1
-copy "%RECIPE_DIR%\menu-v2.json" "%MENU_DIR%\%PKG_NAME%_menu-v2.json.bak"
+copy "%RECIPE_DIR%\menu-v3.json" "%MENU_DIR%\%PKG_NAME%_menu-v3.json.bak"
 if errorlevel 1 exit 1
-copy "%RECIPE_DIR%\menu-v2.json" "%MENU_DIR%\%PKG_NAME%_menu.json"
+copy "%RECIPE_DIR%\menu-v3.json" "%MENU_DIR%\%PKG_NAME%_menu.json"
 if errorlevel 1 exit 1
 copy "%SRC_DIR%\img_src\spyder.ico" "%MENU_DIR%\spyder.ico"
 if errorlevel 1 exit 1
