@@ -163,7 +163,6 @@ extra:
     - andfoy
     - steff456
   skip-lints:
-    - python_build_tool_in_run
     - missing_imports_or_run_test_py
     - patch_unnecessary
     - cbc_dep_in_run_missing_from_host
