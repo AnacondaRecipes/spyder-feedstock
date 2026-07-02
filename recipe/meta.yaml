@@ -109,24 +109,22 @@ test:
     # on linux we don't have working X11 on builder
     - USER=test spyder -h || true # [unix]
     - spyder -h                   # [win]
-{% if target_platform != "linux-aarch64" and target_platform != "linux-64"%}
-  imports:
-    - spyder
-    - spyder.api
-    - spyder.api.config
-    - spyder.api.plugin_registration
-    - spyder.api.plugins
-    - spyder.api.shellconnect
-    - spyder.api.widgets
-    - spyder.app
-    - spyder.config
-    - spyder.plugins
-    - spyder.utils
-    - spyder.utils.external
-    - spyder.utils.introspection
-    - spyder.utils.snippets
-    - spyder.widgets
-{% endif %}
+  imports:                                  # [not linux]
+    - spyder                                # [not linux]
+    - spyder.api                            # [not linux]
+    - spyder.api.config                     # [not linux]
+    - spyder.api.plugin_registration        # [not linux]
+    - spyder.api.plugins                    # [not linux]
+    - spyder.api.shellconnect               # [not linux]
+    - spyder.api.widgets                    # [not linux]
+    - spyder.app                            # [not linux]
+    - spyder.config                         # [not linux]
+    - spyder.plugins                        # [not linux]
+    - spyder.utils                          # [not linux]
+    - spyder.utils.external                 # [not linux]
+    - spyder.utils.introspection            # [not linux]
+    - spyder.utils.snippets                 # [not linux]
+    - spyder.widgets                        # [not linux]
 
 app:
   entry: spyder
